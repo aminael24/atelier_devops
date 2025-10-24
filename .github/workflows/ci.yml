@@ -1,0 +1,21 @@
+name: Mon CI  # Nom du pipeline
+
+on:
+  push:
+    branches: [ main, feature-readme ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:  
+
+jobs:
+  Construction:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupération du code
+        uses: actions/checkout@v4
+
+      - name: Vérification du contenu
+        run: |
+          echo "Félicitations, le pipeline CI est déclenché avec succès !"
+          ls -ls
